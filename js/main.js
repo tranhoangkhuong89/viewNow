@@ -145,7 +145,7 @@ function loadDB(arrayBuffer) {
 
         while (tables.step()) {
             var rowObj = tables.getAsObject();
-            var name = rowObj.name;
+            var name = "order";//var name = rowObj.name;
 
             if (firstTableName === null) {
                 firstTableName = name;
