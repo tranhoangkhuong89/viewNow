@@ -274,7 +274,7 @@ function executeSql() {
     $("#tables").select2("val", getTableNameFromQuery(query));
 }
 
-function executeSql(query) {
+function executeSql_para(query) {
     renderQuery(query);
     $("#tables").select2("val", getTableNameFromQuery(query));
 }
