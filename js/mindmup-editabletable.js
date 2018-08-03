@@ -35,9 +35,11 @@ $.fn.editableTableWidget = function (options) {
 						.height(height)
 						.focus();
 					if (select) {
-						var query="SELECT * FROM 'item' where idorder='"+id+"' LIMIT 0,30";
-						executeSql(query);
-						editor.hide();
+						if(id.length>10){
+							var query="SELECT * FROM 'item' where idorder='"+id+"' LIMIT 0,30";
+							executeSql(query);
+							editor.hide();
+						}
 						//editor.select();
 					}
 				}
