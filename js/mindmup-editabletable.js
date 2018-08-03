@@ -35,7 +35,7 @@ $.fn.editableTableWidget = function (options) {
 						.height(height)
 						.focus();
 					if (select) {
-						var id=element.find('td:focus').parentElement.firstChild.innerText;
+						var id=$(this).find('td:focus').parentElement.firstChild().innerText;
 						var query="SELECT * FROM 'item' where idorder='"+id+"' LIMIT 0,30";
 						executeSql(query);
 						//editor.select();
