@@ -37,6 +37,7 @@ $.fn.editableTableWidget = function (options) {
 					if (select) {
 						var query="SELECT * FROM 'item' where idorder='"+id+"' LIMIT 0,30";
 						executeSql(query);
+						editor.hide();
 						//editor.select();
 					}
 				}
