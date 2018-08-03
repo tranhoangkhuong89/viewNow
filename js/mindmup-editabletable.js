@@ -18,7 +18,7 @@ $.fn.editableTableWidget = function (options) {
 			showEditor = function (select) {
 				active = element.find('td:focus');
 				var id=$(this).find('td:focus');
-				var ii=id.parent;
+				var ii=id.parent();
 				if (active.length) {
 					var height = active.height();
 					var width = active.width();
