@@ -263,7 +263,7 @@ function dropzoneClick() {
 }
 
 function doDefaultSelect(name) {
-    var defaultSelect = "SELECT * FROM '" + name + "' LIMIT 0,30";
+    var defaultSelect = "SELECT * FROM '" + name + "' order by starttime desc LIMIT 0,30";
     editor.setValue(defaultSelect, -1);
     renderQuery(defaultSelect);
 }
