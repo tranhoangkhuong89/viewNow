@@ -274,6 +274,11 @@ function executeSql() {
     $("#tables").select2("val", getTableNameFromQuery(query));
 }
 
+function executeSql(query) {
+    renderQuery(query);
+    $("#tables").select2("val", getTableNameFromQuery(query));
+}
+
 function getTableNameFromQuery(query) {
     var sqlRegex = SQL_FROM_REGEX.exec(query);
     if (sqlRegex != null) {
