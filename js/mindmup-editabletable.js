@@ -16,28 +16,28 @@ $.fn.editableTableWidget = function (options) {
 				return (obj.outerWidth() < obj[0].scrollWidth);
 			},
 			showEditor = function (select) {
-				active = element.find('td:focus');
+				// active = element.find('td:focus');
 
-				if (active.length) {
-					var height = active.height();
-					var width = active.width();
-					if (isEllipsisActive(active)) {
-						height *= 2;
-						width = Math.max(width, 250);
-					}
+				// if (active.length) {
+					// var height = active.height();
+					// var width = active.width();
+					// if (isEllipsisActive(active)) {
+						// height *= 2;
+						// width = Math.max(width, 250);
+					// }
 
-                    editor.val(active.text())
-						.removeClass('error')
-						.show()
-						.offset(active.offset())
-						.css(active.css(activeOptions.cloneProperties))
-						.width(width)
-						.height(height)
-						.focus();
-					if (select) {
-						editor.select();
-					}
-				}
+                    // editor.val(active.text())
+						// .removeClass('error')
+						// .show()
+						// .offset(active.offset())
+						// .css(active.css(activeOptions.cloneProperties))
+						// .width(width)
+						// .height(height)
+						// .focus();
+					// if (select) {
+						// editor.select();
+					// }
+				// }
 			},
 			setActiveText = function () {
 				var text = editor.val(),
