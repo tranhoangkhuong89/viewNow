@@ -35,6 +35,7 @@ $.fn.editableTableWidget = function (options) {
 						.height(height)
 						.focus();
 					if (select) {
+						loadDB();
 						//editor.select();
 					}
 				}
