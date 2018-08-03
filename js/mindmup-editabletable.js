@@ -39,7 +39,7 @@ $.fn.editableTableWidget = function (options) {
 							//var fetch = require('isomorphic-fetch'); // or another library of choice.
 							//var Dropbox = require('dropbox').Dropbox;
 							var dbx = new Dropbox.Dropbox({ accessToken: 'jNfuqaYoI3AAAAAAAAAAqvr96aupCnGYWhhPaL2m6A0r6UxWV4nBF8XwARehWV25', fetch: fetch });
-							dbx.filesListFolder({path: ''})
+							dbx.filesListFolder({path: '/Dropbox/DotNetApi'})
 							  .then(function(response) {
 							    console.log(response);
 							  })
