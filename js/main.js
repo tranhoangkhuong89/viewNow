@@ -26,7 +26,7 @@ $.urlParam = function(name){
 var fileReaderOpts = {
     readAsDefault: "ArrayBuffer", on: {
         load: function (e, file) {
-            loadUrlDB(e.target.result);
+            loadDB(e.target.result);
         }
     }
 };
