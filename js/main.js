@@ -444,7 +444,7 @@ function renderQuery(query) {
         tbody.append(tr);
        stt++;
     }
-   $('#total').text(+Total: "+total);
+   $('#total').text("Total: "+total);
     refreshPagination(query, tableName);
 
     $('[data-toggle="tooltip"]').tooltip({html: true});
