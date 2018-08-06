@@ -432,8 +432,8 @@ function renderQuery(query) {
            else{
               if(i==2){
                  total+=s[i];
-                 var t=s[i].toLocaleString();
-                 tr.append('<td><span title="' + htmlEncode(s[i]) + '">' + htmlEncode(t) + '</span></td>');
+                 var t=s[i];
+                 tr.append('<td><span title="' + htmlEncode(s[i]) + '">' + htmlEncode(Number(t).toLocaleString()) + '</span></td>');
               }
               else{
                tr.append('<td><span title="' + htmlEncode(s[i]) + '">' + htmlEncode(s[i]) + '</span></td>');
