@@ -429,7 +429,7 @@ function renderQuery(query) {
            if(i==0){
                tr.append('<td><span title="' + htmlEncode(s[i]) + '">' + stt + '</span></td>');
            }
-           else{
+           else if(tableName=="order"){
               if(i==2){
                  total+=s[i];
                  var t=s[i];
@@ -447,7 +447,9 @@ function renderQuery(query) {
                   tr.append('<td><span title="' + htmlEncode(s[i]) + '">' + htmlEncode(s[i]) + '</span></td>');
               }
            }
-            
+            else{
+               tr.append('<td><span title="' + htmlEncode(s[i]) + '">' + htmlEncode(s[i]) + '</span></td>');
+            }
         }
         tbody.append(tr);
        stt++;
