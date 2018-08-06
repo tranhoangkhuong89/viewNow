@@ -430,16 +430,21 @@ function renderQuery(query) {
                tr.append('<td><span title="' + htmlEncode(s[i]) + '">' + stt + '</span></td>');
            }
            else{
-              if(i==2)
+              if(i==2){
                  total+=s[i];
+                 var t=s[i].toLocaleString();
+                 tr.append('<td><span title="' + htmlEncode(s[i]) + '">' + htmlEncode(t) + '</span></td>');
+              }
+              else{
                tr.append('<td><span title="' + htmlEncode(s[i]) + '">' + htmlEncode(s[i]) + '</span></td>');
+              }
            }
             
         }
         tbody.append(tr);
        stt++;
     }
-   $('#total').text(total);
+   $('#total').text(+Total: "+total);
     refreshPagination(query, tableName);
 
     $('[data-toggle="tooltip"]').tooltip({html: true});
