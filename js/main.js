@@ -412,6 +412,7 @@ function renderQuery(query) {
 
     var addedColums = false;
    var stt=1;
+   var total=0;
     while (sel.step()) {
         if (!addedColums) {
             addedColums = true;
@@ -429,6 +430,8 @@ function renderQuery(query) {
                tr.append('<td><span title="' + htmlEncode(s[i]) + '">' + stt + '</span></td>');
            }
            else{
+              if(i==2)
+                 total+=s[i];
                tr.append('<td><span title="' + htmlEncode(s[i]) + '">' + htmlEncode(s[i]) + '</span></td>');
            }
             
@@ -436,7 +439,7 @@ function renderQuery(query) {
         tbody.append(tr);
        stt++;
     }
-
+   $('#total').text(total);
     refreshPagination(query, tableName);
 
     $('[data-toggle="tooltip"]').tooltip({html: true});
