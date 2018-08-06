@@ -456,7 +456,13 @@ function renderQuery(query) {
               }
            }
             else{
-               tr.append('<td><span title="' + htmlEncode(s[i]) + '">' + htmlEncode(s[i]) + '</span></td>');
+               if(i==2){
+                  tr.append('<td><span title="' + htmlEncode(s[i]) + '">' + Number(s[i]).toLocaleString() + '</span></td>');
+               }
+               else{
+                  tr.append('<td><span title="' + htmlEncode(s[i]) + '">' + htmlEncode(s[i]) + '</span></td>');
+               }
+               
             }
         }
         tbody.append(tr);
