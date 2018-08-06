@@ -439,7 +439,7 @@ function renderQuery(query) {
                  if(i==3 || i==4){
                      var bb="";
                      if(s[i]!=null){
-                        bb=s[i].split(' ')[1];
+                        bb=s[i].toString().split(' ')[1];
                      }
                      tr.append('<td><span title="' + htmlEncode(s[i]) + '">' + htmlEncode(bb) + '</span></td>');
                  }
