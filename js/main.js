@@ -437,7 +437,8 @@ function renderQuery(query) {
               }
               else{
                  if(i==3 || i==4){
-                  tr.append('<td><span title="' + htmlEncode(s[i]) + '">' + htmlEncode(s[i].split(' ')[1]) + '</span></td>');
+                    var arr=s[i].split(' ');
+                  tr.append('<td><span title="' + htmlEncode(s[i]) + '">' + htmlEncode(arr[1]) + '</span></td>');
                  }
                  else
                   tr.append('<td><span title="' + htmlEncode(s[i]) + '">' + htmlEncode(s[i]) + '</span></td>');
