@@ -445,7 +445,7 @@ function renderQuery(query) {
                  }
                  else if(i==5){
                   if(s[i]=="1"){
-                     tr.append('<td><span title="' + htmlEncode(s[i]) + '">' + htmlEncode(s[i]) + '</span></td>');
+                     tr.append('<td><span style="background-color:green" title="' + htmlEncode(s[i]) + '">' + htmlEncode(s[i]) + '</span></td>');
                   }
                     else{
                      tr.append('<td><span style="background-color:red" title="' + htmlEncode(s[i]) + '">' + htmlEncode(s[i]) + '</span></td>');
