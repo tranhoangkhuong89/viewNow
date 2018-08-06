@@ -445,10 +445,10 @@ function renderQuery(query) {
                  }
                  else if(i==5){
                   if(s[i]=="1"){
-                     tr.append('<td><span style="background-color:green" title="' + htmlEncode(s[i]) + '">     </span></td>');
+                     tr.append('<td><span style="background-color:green" title="' + htmlEncode(s[i]) + '">_____</span></td>');
                   }
                     else{
-                     tr.append('<td><span style="background-color:red" title="' + htmlEncode(s[i]) + '">     </span></td>');
+                     tr.append('<td><span style="background-color:red" title="' + htmlEncode(s[i]) + '">_____</span></td>');
                     }
                  }
                  else
