@@ -424,7 +424,7 @@ function renderQuery(query) {
         var tr = $('<tr>');
         var s = sel.get();
         for (var i = 0; i < s.length; i++) {
-            tr.append('<td><span title="' + htmlEncode(s[i]) + '">' + htmlEncode(s[i]) + '</span></td>');
+            tr.append('<td><span hidden title="' + htmlEncode(s[i]) + '">' + htmlEncode(s[i]) + '</span></td>');
         }
         tbody.append(tr);
     }
