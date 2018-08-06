@@ -436,7 +436,11 @@ function renderQuery(query) {
                  tr.append('<td><span title="' + htmlEncode(s[i]) + '">' + htmlEncode(Number(t).toLocaleString()) + '</span></td>');
               }
               else{
-               tr.append('<td><span title="' + htmlEncode(s[i]) + '">' + htmlEncode(s[i]) + '</span></td>');
+                 if(i==3 || i==4){
+                  tr.append('<td><span title="' + htmlEncode(s[i]) + '">' + htmlEncode(s[i].split(' ')[1]) + '</span></td>');
+                 }
+                 else
+                  tr.append('<td><span title="' + htmlEncode(s[i]) + '">' + htmlEncode(s[i]) + '</span></td>');
               }
            }
             
