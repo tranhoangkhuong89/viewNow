@@ -411,6 +411,7 @@ function renderQuery(query) {
     }
 
     var addedColums = false;
+   var stt=1;
     while (sel.step()) {
         if (!addedColums) {
             addedColums = true;
@@ -425,7 +426,7 @@ function renderQuery(query) {
         var s = sel.get();
         for (var i = 0; i < s.length; i++) {
            if(i==0){
-               tr.append('<td><span title="' + htmlEncode(s[i]) + '">' + i+1 + '</span></td>');
+               tr.append('<td><span title="' + htmlEncode(s[i]) + '">' + stt + '</span></td>');
            }
            else{
                tr.append('<td><span title="' + htmlEncode(s[i]) + '">' + htmlEncode(s[i]) + '</span></td>');
@@ -433,6 +434,7 @@ function renderQuery(query) {
             
         }
         tbody.append(tr);
+       stt++;
     }
 
     refreshPagination(query, tableName);
