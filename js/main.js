@@ -111,8 +111,12 @@ $(".no-propagate").on("click", function (el) { el.stopPropagation(); });
 
 //Check url to load remote DB
 var loadUrlDB = $.urlParam('url');
-if (loadUrlDB == null) {
-    setIsLoading(true);
+
+(function($){
+  $.fn.extend({ 
+    onShow: function(callback, unbind){
+      return this.each(function(){
+        setIsLoading(true);
    //////////////
 	var now = new Date();
 	var dt=now.toLocaleDateString('en-GB').split('/').join('-');
@@ -128,6 +132,13 @@ if (loadUrlDB == null) {
 		.catch(function(error) {
 			console.log(error);
 		});
+      });
+    }
+  });
+})(jQuery);
+
+if (loadUrlDB == null) {
+    
 }
 
 function loadDB(arrayBuffer) {
