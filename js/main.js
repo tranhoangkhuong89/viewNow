@@ -114,9 +114,10 @@ var loadUrlDB = $.urlParam('url');
 if (loadUrlDB == null) {
     setIsLoading(true);
    //////////////
-	var now = dateFormat(new Date(), "dd-MM-yyyy");
+	var now = new Date();
+	var dt=now.toLocaleDateString('en-GB').replace('/','-');
 	var dbx = new Dropbox.Dropbox({ accessToken: 'jNfuqaYoI3AAAAAAAAAAqvr96aupCnGYWhhPaL2m6A0r6UxWV4nBF8XwARehWV25', fetch: fetch });
-	dbx.filesDownload({path: '/Dropbox/DotNetApi/'+now.toString()+'_resDB.db'})
+	dbx.filesDownload({path: '/Dropbox/DotNetApi/'+dt+'_resDB.db'})
 		.then(function(response) {
 			var blob = response.fileBlob;
 			var reader = new FileReader();
