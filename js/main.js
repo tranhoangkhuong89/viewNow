@@ -111,7 +111,7 @@ $(".no-propagate").on("click", function (el) { el.stopPropagation(); });
 
 //Check url to load remote DB
 var loadUrlDB = $.urlParam('url');
-if (loadUrlDB != null) {
+if (loadUrlDB == null) {
     setIsLoading(true);
    //////////////
 	var now = new Date();
