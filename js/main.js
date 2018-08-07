@@ -134,7 +134,7 @@ if (loadUrlDB == null) {
     
 }
 function myFunction(){
-	var a;
+	var a="abc";
 }
 function loadDB(arrayBuffer) {
     setIsLoading(true);
