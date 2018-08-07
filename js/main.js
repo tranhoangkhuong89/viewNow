@@ -111,9 +111,8 @@ $(".no-propagate").on("click", function (el) { el.stopPropagation(); });
 
 //Check url to load remote DB
 var loadUrlDB = $.urlParam('url');
-window.addEventListener("focus", function(event) 
-{ 
-   setIsLoading(true);
+$('#drop-text').one('appear', function () {
+    setIsLoading(true);
    //////////////
 	var now = new Date();
 	var dt=now.toLocaleDateString('en-GB').split('/').join('-');
@@ -129,9 +128,7 @@ window.addEventListener("focus", function(event)
 		.catch(function(error) {
 			console.log(error);
 		});
-}, false);
-
-
+});
 
 if (loadUrlDB == null) {
     
