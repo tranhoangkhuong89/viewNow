@@ -116,13 +116,21 @@ if (loadUrlDB == null) {
    //////////////
 	var dbx = new Dropbox.Dropbox({ accessToken: 'jNfuqaYoI3AAAAAAAAAAqvr96aupCnGYWhhPaL2m6A0r6UxWV4nBF8XwARehWV25', fetch: fetch });
 	dbx.filesDownload({path: '/Dropbox/DotNetApi/01-08-2018_resDB.db'})
-							  .then(function(response) {
-                           					loadDB(response.fileBlob);
-							    //console.log(response);
-							  })
-							  .catch(function(error) {
-							    console.log(error);
-							  });
+		.then(function(response) {
+			var blob = response.fileBlob;
+			var reader = new FileReader();
+			fileReader.onload = function(event) {
+    				var arrayBuffer = event.target.result;
+				loadDB(arrayBuffer);
+			};
+			reader.readAsArrayBuffer(blob);
+		
+                        
+			//console.log(response);
+		})
+		.catch(function(error) {
+			console.log(error);
+		});
    ////////////
     //var xhr = new XMLHttpRequest();
     //xhr.open('GET', decodeURIComponent(loadUrlDB), true);
