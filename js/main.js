@@ -133,9 +133,7 @@ $('#drop-text').one('appear', function () {
 if (loadUrlDB == null) {
     
 }
-function myFunction(){
-	var a="abc";
-}
+
 function loadDB(arrayBuffer) {
     setIsLoading(true);
 
@@ -266,6 +264,10 @@ function extractFileNameWithoutExt(filename) {
     } else {
         return filename;
     }
+}
+
+function myFunction(){
+	var a="abc";
 }
 
 function dropzoneClick() {
