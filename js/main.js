@@ -267,25 +267,13 @@ function extractFileNameWithoutExt(filename) {
 }
 
 window.addEventListener("focus", function() {
-    if (confirm('Are you sure you want to save this thing into the database?')) {
-    // Save it!
-} else {
-    // Do nothing!
-}
+    var a="abc";
 });
 window.addEventListener("blur", function() {
-    if (confirm('Are you sure you want to save this thing into the database?')) {
-    // Save it!
-} else {
-    // Do nothing!
-}
+    var a="abc";
 });
 window.addEventListener("resume", function() {
-    if (confirm('Are you sure you want to save this thing into the database?')) {
-    // Save it!
-} else {
-    // Do nothing!
-}
+    var a="abc";
 });
 
 function myFunction(){
