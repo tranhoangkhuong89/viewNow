@@ -113,17 +113,28 @@ $(".no-propagate").on("click", function (el) { el.stopPropagation(); });
 var loadUrlDB = $.urlParam('url');
 if (loadUrlDB != null) {
     setIsLoading(true);
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', decodeURIComponent(loadUrlDB), true);
-    xhr.responseType = 'arraybuffer';
+   //////////////
+	var dbx = new Dropbox.Dropbox({ accessToken: 'jNfuqaYoI3AAAAAAAAAAqvr96aupCnGYWhhPaL2m6A0r6UxWV4nBF8XwARehWV25', fetch: fetch });
+	dbx.filesListFolder({path: '/Dropbox/DotNetApi/01-08-2018_resDB.db'})
+							  .then(function(response) {
+                           loadDB(this.response);
+							    //console.log(response);
+							  })
+							  .catch(function(error) {
+							    console.log(error);
+							  });
+   ////////////
+    //var xhr = new XMLHttpRequest();
+    //xhr.open('GET', decodeURIComponent(loadUrlDB), true);
+    //xhr.responseType = 'arraybuffer';
 
-    xhr.onload = function(e) {
-        loadDB(this.response);
-    };
-    xhr.onerror = function (e) {
-        setIsLoading(false);
-    };
-    xhr.send();
+    //xhr.onload = function(e) {
+        //loadDB(this.response);
+    //};
+    //xhr.onerror = function (e) {
+        //setIsLoading(false);
+    //};
+    //xhr.send();
 }
 
 function loadDB(arrayBuffer) {
