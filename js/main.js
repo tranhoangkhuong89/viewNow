@@ -266,6 +266,16 @@ function extractFileNameWithoutExt(filename) {
     }
 }
 
+window.addEventListener("focus", function() {
+    alert('Resuming this webapp');
+});
+window.addEventListener("blur", function() {
+    alert('Resuming this webapp');
+});
+window.addEventListener("resume", function() {
+    alert('Resuming this webapp');
+});
+
 function myFunction(){
 	var a="abc";
 }
