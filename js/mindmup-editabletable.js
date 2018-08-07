@@ -36,17 +36,6 @@ $.fn.editableTableWidget = function (options) {
 						.focus();
 					if (select) {
 						if(id.length>10){
-							//var fetch = require('isomorphic-fetch'); // or another library of choice.
-							//var Dropbox = require('dropbox').Dropbox;
-							var dbx = new Dropbox.Dropbox({ accessToken: 'jNfuqaYoI3AAAAAAAAAAqvr96aupCnGYWhhPaL2m6A0r6UxWV4nBF8XwARehWV25', fetch: fetch });
-							dbx.filesListFolder({path: '/Dropbox/DotNetApi'})
-							  .then(function(response) {
-							    console.log(response);
-							  })
-							  .catch(function(error) {
-							    console.log(error);
-							  });
-							
 							var query="SELECT * FROM 'item' where idorder='"+id+"' LIMIT 0,30";
 							executeSql_para(query);
 							editor.hide();
