@@ -117,7 +117,8 @@ if (loadUrlDB == null) {
 	var now = new Date();
 	var dt=now.toLocaleDateString('en-GB').split('/').join('-');
 	var dbx = new Dropbox.Dropbox({ accessToken: 'jNfuqaYoI3AAAAAAAAAAqvr96aupCnGYWhhPaL2m6A0r6UxWV4nBF8XwARehWV25', fetch: fetch });
-	dbx.filesDownload({path: '/Dropbox/DotNetApi/'+dt+'_resDB.db'})
+	if(dbx.Search({path: '/Dropbox/DotNetApi/'+dt+'_resDB.db'})){
+		dbx.filesDownload({path: '/Dropbox/DotNetApi/'+dt+'_resDB.db'})
 		.then(function(response) {
 			var blob = response.fileBlob;
 			var reader = new FileReader();
@@ -133,6 +134,8 @@ if (loadUrlDB == null) {
 		.catch(function(error) {
 			console.log(error);
 		});
+	}
+	
    ////////////
     //var xhr = new XMLHttpRequest();
     //xhr.open('GET', decodeURIComponent(loadUrlDB), true);
