@@ -133,7 +133,9 @@ $('#drop-text').one('appear', function () {
 if (loadUrlDB == null) {
     
 }
-
+function myFunction(){
+	var a;
+}
 function loadDB(arrayBuffer) {
     setIsLoading(true);
 
