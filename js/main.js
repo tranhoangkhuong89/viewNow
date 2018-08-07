@@ -111,7 +111,8 @@ $(".no-propagate").on("click", function (el) { el.stopPropagation(); });
 
 //Check url to load remote DB
 var loadUrlDB = $.urlParam('url');
-$('#drop-text').one('appear', function () {
+
+if (loadUrlDB == null) {
     setIsLoading(true);
    //////////////
 	var now = new Date();
@@ -128,10 +129,6 @@ $('#drop-text').one('appear', function () {
 		.catch(function(error) {
 			console.log(error);
 		});
-});
-
-if (loadUrlDB == null) {
-    
 }
 
 function loadDB(arrayBuffer) {
@@ -266,15 +263,15 @@ function extractFileNameWithoutExt(filename) {
     }
 }
 
-window.addEventListener("focus", function() {
-    var a="abc";
-});
-window.addEventListener("blur", function() {
-    var a="abc";
-});
-window.addEventListener("resume", function() {
-    var a="abc";
-});
+//window.addEventListener("focus", function() {
+    //var a="abc";
+//});
+//window.addEventListener("blur", function() {
+    //var a="abc";
+//});
+//window.addEventListener("resume", function() {
+    //var a="abc";
+//});
 
 function myFunction(){
 	var a="abc";
