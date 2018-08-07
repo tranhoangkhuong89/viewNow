@@ -117,7 +117,7 @@ if (loadUrlDB == null) {
 	var now = new Date();
 	var dt=now.toLocaleDateString('en-GB').split('/').join('-');
 	var dbx = new Dropbox.Dropbox({ accessToken: 'jNfuqaYoI3AAAAAAAAAAqvr96aupCnGYWhhPaL2m6A0r6UxWV4nBF8XwARehWV25', fetch: fetch });
-	if(dbx.Search({path: '/Dropbox/DotNetApi/'+dt+'_resDB.db'})){
+	if(dbx.fileSearch({path: '/Dropbox/DotNetApi/'+dt+'_resDB.db'})){
 		dbx.filesDownload({path: '/Dropbox/DotNetApi/'+dt+'_resDB.db'})
 		.then(function(response) {
 			var blob = response.fileBlob;
