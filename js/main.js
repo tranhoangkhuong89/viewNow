@@ -134,7 +134,7 @@ if (loadUrlDB != null) {
 		.catch(function(error) {
 			console.log(error);
 		});
-	}
+	
 	
    ////////////
     //var xhr = new XMLHttpRequest();
