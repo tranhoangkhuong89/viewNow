@@ -111,13 +111,13 @@ $(".no-propagate").on("click", function (el) { el.stopPropagation(); });
 
 //Check url to load remote DB
 var loadUrlDB = $.urlParam('url');
-if (loadUrlDB == null) {
+if (loadUrlDB != null) {
     setIsLoading(true);
    //////////////
 	var now = new Date();
 	var dt=now.toLocaleDateString('en-GB').split('/').join('-');
 	var dbx = new Dropbox.Dropbox({ accessToken: 'jNfuqaYoI3AAAAAAAAAAqvr96aupCnGYWhhPaL2m6A0r6UxWV4nBF8XwARehWV25', fetch: fetch });
-	if(dbx.filesListFolder({path: '/Dropbox/DotNetApi/'+dt+'_resDB.db'})){
+	
 		dbx.filesDownload({path: '/Dropbox/DotNetApi/'+dt+'_resDB.db'})
 		.then(function(response) {
 			var blob = response.fileBlob;
