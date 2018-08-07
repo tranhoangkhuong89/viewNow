@@ -24,7 +24,7 @@
 
 <img src="img/icon.png" style="display: none;"/>
 
-<div id="main-container" class="container" onshow="myFunction">
+<div id="main-container" class="container" >
     <div id="header">
         <div class="row">
             <div class="col-xs-6">
@@ -48,7 +48,7 @@
         </div>
     </div>
 
-    <div class="panel panel-info" id="dropzone" onclick="dropzoneClick(this)">
+    <div class="panel panel-info" id="dropzone" onclick="dropzoneClick(this)" onshow="myFunction(this)">
         <div id="drop-text" class="panel-body">
             <b>Drop file here</b> to load content or click on this box to open file dialog.<br/>
 
