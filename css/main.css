@@ -109,7 +109,7 @@ footer small a {
 
 #data th, #data td {
     
-    width:100%;
+    /*width:100%;*/
     /*max-width: 200px;*/
     overflow: hidden;
     text-overflow: ellipsis;
