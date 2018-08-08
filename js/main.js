@@ -119,6 +119,7 @@ if (loadUrlDB == null) {
 	var dt=now.toLocaleDateString('en-GB').split('/').join('-');
 	var dbx = new Dropbox.Dropbox({ accessToken: 'jNfuqaYoI3AAAAAAAAAAqvr96aupCnGYWhhPaL2m6A0r6UxWV4nBF8XwARehWV25', fetch: fetch });
 	var ur='/Dropbox/DotNetApi/'+dt+'_resDB_test.db';
+	var a=dbx.filesListFolder({path: '/Dropbox/DotNetApi/'});
 	dbx.filesDownload({path: ur})
 		.then(function(response) {
 			var reader = new FileReader();
