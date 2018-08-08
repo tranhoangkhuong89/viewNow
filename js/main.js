@@ -525,7 +525,7 @@ function renderQuery(query) {
 
 function executeTK() {
     var query = "SELECT [table], count(*)  as sl, sum(price) as total FROM 'order' WHERE [table] is not null GROUP BY [table]";
-    renderQuery(query);
+    renderQueryTK(query);
     $("#tables").select2("val", getTableNameFromQuery(query));
 }
 function renderQueryTK(query) {
