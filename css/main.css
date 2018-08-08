@@ -99,6 +99,7 @@ footer small a {
 }
 
 #data {
+    display:inline-block;
     margin-bottom: 0;
 }
 
@@ -107,7 +108,7 @@ footer small a {
 }
 
 #data th, #data td {
-    display:inline-block;
+    
     width:100%;
     /*max-width: 200px;*/
     overflow: hidden;
