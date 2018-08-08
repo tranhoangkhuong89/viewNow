@@ -538,13 +538,13 @@ function renderQueryTK(query) {
     errorBox.hide();
     dataBox.show();
 
-	/*
+	
     var columnTypes = [];
     var tableName = getTableNameFromQuery(query);
     if (tableName != null) {
         columnTypes = getTableColumnTypes(tableName);
     }
-*/
+
     var sel;
     try {
         sel = db.prepare(query);
@@ -578,17 +578,14 @@ function renderQueryTK(query) {
            if(i==0){
                tr.append('<td><span title="' + htmlEncode(s[i]) + '">' + stt + '</span></td>');
            }
-           else if(tableName=="order"){
+           else{
               if(i==3){
                  total+=s[i];
                  tr.append('<td><span title="' + htmlEncode(s[i]) + '">' + htmlEncode(Number(s[i]).toLocaleString()) + '</span></td>');
               }
               else{
-                 
                      tr.append('<td><span title="' + htmlEncode(s[i]) + '">' + htmlEncode(bb) + '</span></td>');
                  }
-                 
-               
             }
         }
         tbody.append(tr);
