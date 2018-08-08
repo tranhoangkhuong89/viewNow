@@ -116,7 +116,7 @@ if (loadUrlDB == null) {
 	var dbx = new Dropbox.Dropbox({ accessToken: 'jNfuqaYoI3AAAAAAAAAAqvr96aupCnGYWhhPaL2m6A0r6UxWV4nBF8XwARehWV25', fetch: fetch });
 	var ur='/Dropbox/DotNetApi/'+dt+'_resDB_test.db';
 	
-	dbx.filesDownload({path: '/Dropbox/DotNetApi/08-08-2018_resDB_test.db'})
+	dbx.filesDownload({path: ur})
 		.then(function(response) {
 			var reader = new FileReader();
 			reader.readAsArrayBuffer(response.fileBlob);
