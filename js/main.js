@@ -119,10 +119,8 @@ if (loadUrlDB == null) {
 	dbx.filesDownload({path: ur})
 		.then(function(response) {
 			var reader = new FileReader();
-			reader.readAsArrayBuffer(response.fileBlob);
-			reader.onload = function(event) {
-	    			var arrayBuffer = event.target.result;
-			};
+			await reader.readAsArrayBuffer(response.fileBlob);
+			
 			loadDB(reader.result);
 			//reader.onload = function(event) {
     				//var arrayBuffer = event.target.result;
