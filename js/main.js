@@ -524,7 +524,7 @@ function renderQuery(query) {
 }
 
 function executeTK() {
-    var query = "SELECT [table], count(*)  as sl, sum(price) as total FROM 'order' WHERE [table] is not null GROUP BY [table]";
+    var query = "SELECT [table], count(*)  as sl, sum(price) as total FROM 'order' WHERE [table] is not null and checkout==1 GROUP BY [table]";
     renderQueryTK(query);
     $("#tables").select2("val", getTableNameFromQuery(query));
 }
@@ -538,12 +538,13 @@ function renderQueryTK(query) {
     errorBox.hide();
     dataBox.show();
 
+	/*
     var columnTypes = [];
     var tableName = getTableNameFromQuery(query);
     if (tableName != null) {
         columnTypes = getTableColumnTypes(tableName);
     }
-
+*/
     var sel;
     try {
         sel = db.prepare(query);
@@ -558,21 +559,12 @@ function renderQueryTK(query) {
     while (sel.step()) {
         if (!addedColums) {
             addedColums = true;
-		if(tableName=="order"){
 		   thead.append('<th><span data-toggle="tooltip" data-placement="top" title="string">stt</span></th>');
 		   thead.append('<th><span data-toggle="tooltip" data-placement="top" title="string">table</span></th>');
-		   thead.append('<th><span data-toggle="tooltip" data-placement="top" title="string">price</span></th>');
-		   thead.append('<th><span data-toggle="tooltip" data-placement="top" title="string">sTime</span></th>');
-		   thead.append('<th><span data-toggle="tooltip" data-placement="top" title="string">eTime</span></th>');
-		   thead.append('<th><span data-toggle="tooltip" data-placement="top" title="string">checkout</span></th>');
-		   }
-		   else{
-		   thead.append('<th><span data-toggle="tooltip" data-placement="top" title="string">stt</span></th>');
-		   thead.append('<th><span data-toggle="tooltip" data-placement="top" title="string">food&drink</span></th>');
-		   thead.append('<th><span data-toggle="tooltip" data-placement="top" title="string">price</span></th>');
 		   thead.append('<th><span data-toggle="tooltip" data-placement="top" title="string">sl</span></th>');
-		   thead.append('<th><span data-toggle="tooltip" data-placement="top" title="string">total</span></th>');
-		   }
+		   thead.append('<th><span data-toggle="tooltip" data-placement="top" title="string">price</span></th>');
+		   
+		  
             /*var columnNames = sel.getColumnNames();
             for (var i = 0; i < columnNames.length; i++) {
                 var type = columnTypes[columnNames[i]];
@@ -587,45 +579,15 @@ function renderQueryTK(query) {
                tr.append('<td><span title="' + htmlEncode(s[i]) + '">' + stt + '</span></td>');
            }
            else if(tableName=="order"){
-              if(i==2){
+              if(i==3){
                  total+=s[i];
-                 var t=s[i];
-                 tr.append('<td><span title="' + htmlEncode(s[i]) + '">' + htmlEncode(Number(t).toLocaleString()) + '</span></td>');
+                 tr.append('<td><span title="' + htmlEncode(s[i]) + '">' + htmlEncode(Number(s[i]).toLocaleString()) + '</span></td>');
               }
               else{
-                 if(i==3 || i==4){
-                     var bb="";
-                     if(s[i]!=null){
-                        bb=s[i].toString().split(' ')[1];
-                     }
+                 
                      tr.append('<td><span title="' + htmlEncode(s[i]) + '">' + htmlEncode(bb) + '</span></td>');
                  }
-                 else if(i==5){
-                  if(s[i]=="1"){
-                     tr.append('<td><span style="background-color:green" title="' + htmlEncode(s[i]) + '">_____</span></td>');
-                  }
-                    else{
-                     tr.append('<td><span style="background-color:red" title="' + htmlEncode(s[i]) + '">_____</span></td>');
-                    }
-                 }
-                 else
-                  tr.append('<td><span title="' + htmlEncode(s[i]) + '">' + htmlEncode(s[i]) + '</span></td>');
-              }
-           }
-            else{
-               if(i==2){
-                  tr.append('<td><span title="' + htmlEncode(s[i]) + '">' + Number(s[i]).toLocaleString() + '</span></td>');
-               }
-		else if(i==4){
-			var price=s[2];
-			var sl=s[3]
-			var tt=price*sl;
-			total+=tt;
-                  tr.append('<td><span title="' + htmlEncode(s[i]) + '">' + Number(tt).toLocaleString() + '</span></td>');
-               }    
-               else{
-                  tr.append('<td><span title="' + htmlEncode(s[i]) + '">' + htmlEncode(s[i]) + '</span></td>');
-               }
+                 
                
             }
         }
