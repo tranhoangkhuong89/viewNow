@@ -556,7 +556,7 @@ function renderQueryTK(query) {
    var stt=1;
    var total=0;
     while (sel.step()) {
-        /* if (!addedColums) {
+        if (!addedColums) {
             addedColums = true;
 		if(tableName=="order"){
 		   thead.append('<th><span data-toggle="tooltip" data-placement="top" title="string">stt</span></th>');
@@ -578,7 +578,7 @@ function renderQueryTK(query) {
                 var type = columnTypes[columnNames[i]];
                 thead.append('<th><span data-toggle="tooltip" data-placement="top" title="' + type + '">' + columnNames[i] + "</span></th>");
             }*/
-        } */
+        } 
 
         var tr = $('<tr>');
         var s = sel.get();
