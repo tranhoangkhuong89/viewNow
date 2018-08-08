@@ -524,7 +524,7 @@ function renderQuery(query) {
 }
 
 function executeTK() {
-    var query = "SELECT [table], count(*)  as sl, sum(price) as total FROM 'order' WHERE [table] is not null GROUP BY [table]";
+    var query = "SELECT [table], count(*)  as sl, sum(price) as total FROM 'order' WHERE [table] is not null and checkout==1 GROUP BY [table]";
     renderQueryTK(query);
     $("#tables").select2("val", getTableNameFromQuery(query));
 }
@@ -584,7 +584,7 @@ function renderQueryTK(query) {
                  tr.append('<td><span title="' + htmlEncode(s[i]) + '">' + htmlEncode(Number(s[i]).toLocaleString()) + '</span></td>');
               }
               else{
-                     tr.append('<td><span title="' + htmlEncode(s[i]) + '">' + htmlEncode(bb) + '</span></td>');
+                     tr.append('<td><span title="' + htmlEncode(s[i]) + '">' + htmlEncode(s[i]) + '</span></td>');
                  }
             }
         }
