@@ -9,10 +9,6 @@ var bottomBarDefaultPos = null, bottomBarDisplayStyle = null;
 var errorBox = $("#error");
 var lastCachedQueryCount = {};
 
-$("#data tr").click(function() {
-   alert($(this).children("td").html());
-});
-
 $.urlParam = function(name){
     var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
     if (results==null){
@@ -119,17 +115,7 @@ if (loadUrlDB == null) {
 	var dt=now.toLocaleDateString('en-GB').split('/').join('-');
 	var dbx = new Dropbox.Dropbox({ accessToken: 'jNfuqaYoI3AAAAAAAAAAqvr96aupCnGYWhhPaL2m6A0r6UxWV4nBF8XwARehWV25', fetch: fetch });
 	var ur='/Dropbox/DotNetApi/'+dt+'_resDB_test.db';
-	var a=dbx.filesListFolder({path: '/Dropbox/DotNetApi/'})
-		.then(function(response) {
-			var reader = new FileReader();
-			reader.onload = function(event) {
-    				var arrayBuffer = event.target.result;
-				//loadDB(arrayBuffer);
-			};
-		})
-		.catch(function(error) {
-			console.log(error);
-		});
+	
 	dbx.filesDownload({path: '/Dropbox/DotNetApi/08-08-2018_resDB_test.db'})
 		.then(function(response) {
 			var reader = new FileReader();
@@ -285,9 +271,7 @@ function extractFileNameWithoutExt(filename) {
     //var a="abc";
 //});
 
-function myFunction(){
-	var a="abc";
-}
+
 
 function dropzoneClick() {
     $("#dropzone-dialog").click();
