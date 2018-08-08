@@ -107,7 +107,9 @@ footer small a {
 }
 
 #data th, #data td {
-    max-width: 200px;
+    display:inline-block;
+    width:100%;
+    /*max-width: 200px;*/
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
