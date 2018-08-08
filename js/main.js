@@ -439,19 +439,19 @@ function renderQuery(query) {
         if (!addedColums) {
             addedColums = true;
 		if(tableName=="order"{
-		   thead.append('<th><span data-toggle="tooltip" data-placement="top" title="' + type + '">stt</span></th>');
-		   thead.append('<th><span data-toggle="tooltip" data-placement="top" title="' + type + '">table</span></th>');
-		   thead.append('<th><span data-toggle="tooltip" data-placement="top" title="' + type + '">price</span></th>');
-		   thead.append('<th><span data-toggle="tooltip" data-placement="top" title="' + type + '">sTime</span></th>');
-		   thead.append('<th><span data-toggle="tooltip" data-placement="top" title="' + type + '">eTime</span></th>');
-		   thead.append('<th><span data-toggle="tooltip" data-placement="top" title="' + type + '">checkout</span></th>');
+		   thead.append('<th><span data-toggle="tooltip" data-placement="top" title="string">stt</span></th>');
+		   thead.append('<th><span data-toggle="tooltip" data-placement="top" title="string">table</span></th>');
+		   thead.append('<th><span data-toggle="tooltip" data-placement="top" title="string">price</span></th>');
+		   thead.append('<th><span data-toggle="tooltip" data-placement="top" title="string">sTime</span></th>');
+		   thead.append('<th><span data-toggle="tooltip" data-placement="top" title="string">eTime</span></th>');
+		   thead.append('<th><span data-toggle="tooltip" data-placement="top" title="string">checkout</span></th>');
 		   }
 		   else{
-		   thead.append('<th><span data-toggle="tooltip" data-placement="top" title="' + type + '">stt</span></th>');
-		   thead.append('<th><span data-toggle="tooltip" data-placement="top" title="' + type + '">food&drink</span></th>');
-		   thead.append('<th><span data-toggle="tooltip" data-placement="top" title="' + type + '">price</span></th>');
-		   thead.append('<th><span data-toggle="tooltip" data-placement="top" title="' + type + '">sl</span></th>');
-		   thead.append('<th><span data-toggle="tooltip" data-placement="top" title="' + type + '">total</span></th>');
+		   thead.append('<th><span data-toggle="tooltip" data-placement="top" title="string">stt</span></th>');
+		   thead.append('<th><span data-toggle="tooltip" data-placement="top" title="string">food&drink</span></th>');
+		   thead.append('<th><span data-toggle="tooltip" data-placement="top" title="string">price</span></th>');
+		   thead.append('<th><span data-toggle="tooltip" data-placement="top" title="string">sl</span></th>');
+		   thead.append('<th><span data-toggle="tooltip" data-placement="top" title="string">total</span></th>');
 		   }
             /*var columnNames = sel.getColumnNames();
             for (var i = 0; i < columnNames.length; i++) {
