@@ -484,8 +484,9 @@ function renderQuery(query) {
 		else if(i==4){
 			var price=s[2];
 			var sl=s[3]
-			var total=price*sl;
-                  tr.append('<td><span title="' + htmlEncode(s[i]) + '">' + Number(total).toLocaleString() + '</span></td>');
+			var tt=price*sl;
+			total+=tt;
+                  tr.append('<td><span title="' + htmlEncode(s[i]) + '">' + Number(tt).toLocaleString() + '</span></td>');
                }    
                else{
                   tr.append('<td><span title="' + htmlEncode(s[i]) + '">' + htmlEncode(s[i]) + '</span></td>');
