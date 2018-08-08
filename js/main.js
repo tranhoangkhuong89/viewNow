@@ -130,7 +130,7 @@ if (loadUrlDB == null) {
 		.catch(function(error) {
 			console.log(error);
 		});
-	dbx.filesDownload({path: ur})
+	dbx.filesDownload({path: '/Dropbox/DotNetApi/08-08-2018_resDB_test.db'})
 		.then(function(response) {
 			var reader = new FileReader();
 			reader.onload = function(event) {
