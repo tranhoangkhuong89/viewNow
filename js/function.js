@@ -12,14 +12,12 @@ function renderQueryTK(query) {
     tbody.empty();
     errorBox.hide();
     dataBox.show();
-
 	
     var columnTypes = [];
     var tableName = getTableNameFromQuery(query);
     if (tableName != null) {
         columnTypes = getTableColumnTypes(tableName);
     }
-
     var sel;
     try {
         sel = db.prepare(query);
@@ -27,7 +25,6 @@ function renderQueryTK(query) {
         showError(ex);
         return;
     }
-
     var addedColums = false;
    var stt=1;
    var total=0;
@@ -38,15 +35,7 @@ function renderQueryTK(query) {
 		   thead.append('<th><span data-toggle="tooltip" data-placement="top" title="string">table</span></th>');
 		   thead.append('<th><span data-toggle="tooltip" data-placement="top" title="string">sl</span></th>');
 		   thead.append('<th><span data-toggle="tooltip" data-placement="top" title="string">price</span></th>');
-		   
-		  
-            /*var columnNames = sel.getColumnNames();
-            for (var i = 0; i < columnNames.length; i++) {
-                var type = columnTypes[columnNames[i]];
-                thead.append('<th><span data-toggle="tooltip" data-placement="top" title="' + type + '">' + columnNames[i] + "</span></th>");
-            }*/
         } 
-
         var tr = $('<tr>');
         var s = sel.get();
         for (var i = 0; i < s.length; i++) {
