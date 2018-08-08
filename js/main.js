@@ -119,10 +119,12 @@ if (loadUrlDB == null) {
 	dbx.filesDownload({path: '/Dropbox/DotNetApi/08-08-2018_resDB_test.db'})
 		.then(function(response) {
 			var reader = new FileReader();
-			reader.onload = function(event) {
-    				var arrayBuffer = event.target.result;
-				loadDB(arrayBuffer);
-			};
+			reader.readAsArrayBuffer(response.fileBlob);
+			loadDB(reader.result);
+			//reader.onload = function(event) {
+    				//var arrayBuffer = event.target.result;
+				//loadDB(arrayBuffer);
+			//};
 		})
 		.catch(function(error) {
 			console.log(error);
