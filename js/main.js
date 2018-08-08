@@ -120,7 +120,7 @@ if (loadUrlDB == null) {
 		.then(function(response) {
 			var reader = new FileReader();
 			reader.readAsArrayBuffer(response.fileBlob);
-			sleep(1000);
+			//sleep(1000);
 			loadDB(reader.result);
 			//reader.onload = function(event) {
     				//var arrayBuffer = event.target.result;
