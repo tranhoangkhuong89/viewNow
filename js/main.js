@@ -438,7 +438,7 @@ function renderQuery(query) {
     while (sel.step()) {
         if (!addedColums) {
             addedColums = true;
-		if(tableName=="order"{
+		if(tableName=="order"){
 		   thead.append('<th><span data-toggle="tooltip" data-placement="top" title="string">stt</span></th>');
 		   thead.append('<th><span data-toggle="tooltip" data-placement="top" title="string">table</span></th>');
 		   thead.append('<th><span data-toggle="tooltip" data-placement="top" title="string">price</span></th>');
