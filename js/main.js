@@ -524,7 +524,7 @@ function renderQuery(query) {
 }
 
 function executeTK() {
-    var query = "SELECT [table], count(*)  as sl, sum(price) as total FROM 'order' WHERE [table] is not null and checkout==1 GROUP BY [table]";
+    var query = "SELECT idkey, [table], count(*)  as sl, sum(price) as total FROM 'order' WHERE [table] is not null and checkout==1 GROUP BY [table]";
     renderQueryTK(query);
     $("#tables").select2("val", getTableNameFromQuery(query));
 }
