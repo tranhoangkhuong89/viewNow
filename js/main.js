@@ -442,9 +442,9 @@ function renderQuery(query) {
 		   thead.append('<th><span data-toggle="tooltip" data-placement="top" title="string">stt</span></th>');
 		   thead.append('<th><span data-toggle="tooltip" data-placement="top" title="string">table</span></th>');
 		   thead.append('<th><span data-toggle="tooltip" data-placement="top" title="string">price</span></th>');
-		   thead.append('<th><span data-toggle="tooltip" data-placement="top" title="string">sTime</span></th>');
-		   thead.append('<th><span data-toggle="tooltip" data-placement="top" title="string">eTime</span></th>');
-		   thead.append('<th><span data-toggle="tooltip" data-placement="top" title="string">checkout</span></th>');
+		   thead.append('<th><span data-toggle="tooltip" data-placement="top" title="string">in</span></th>');
+		   thead.append('<th><span data-toggle="tooltip" data-placement="top" title="string">out</span></th>');
+		   thead.append('<th><span data-toggle="tooltip" data-placement="top" title="string">check</span></th>');
 		   }
 		   else{
 		   thead.append('<th><span data-toggle="tooltip" data-placement="top" title="string">stt</span></th>');
