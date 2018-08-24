@@ -8,6 +8,7 @@ var editor = ace.edit("sql-editor");
 var bottomBarDefaultPos = null, bottomBarDisplayStyle = null;
 var errorBox = $("#error");
 var lastCachedQueryCount = {};
+var query_tt;
 
 $.urlParam = function(name){
     var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
@@ -108,35 +109,46 @@ $(".no-propagate").on("click", function (el) { el.stopPropagation(); });
 //Check url to load remote DB
 var loadUrlDB = $.urlParam('url');
 
-if (loadUrlDB == null) {
-    setIsLoading(true);
-   //////////////
-	var now = new Date();
-	var dt=now.toLocaleDateString('en-GB').split('/').join('-');
-	var dbx = new Dropbox.Dropbox({ accessToken: 'jNfuqaYoI3AAAAAAAAAAqvr96aupCnGYWhhPaL2m6A0r6UxWV4nBF8XwARehWV25', fetch: fetch });
-	var ur='/Dropbox/DotNetApi/'+dt+'_resDB.db';
-	
-	dbx.filesDownload({path: ur})
-		.then(function(response) {
-			var reader = new FileReader();
-			reader.onload = function(event) {
-    				var arrayBuffer = event.target.result;
-				loadDB(arrayBuffer);
-			};
-			reader.readAsArrayBuffer(response.fileBlob);
-			//sleep(1000);
-			//loadDB(reader.result);
-			//reader.onload = function(event) {
-    				//var arrayBuffer = event.target.result;
-				//loadDB(arrayBuffer);
-			//};
-		})
-		.catch(function(error) {
-			console.log(error);
-		});
+var now = new Date();
+var dt=now.toLocaleDateString('en-GB').split('/').join('-');
+
+khoitao(dt);
+
+function khoitao(dt){
+  if (loadUrlDB == null) {
+      setIsLoading(true);
+     //////////////
+
+    if($("txtngay").text()==""){
+    $("txtngay").text(dt);
+    }
+  	var dbx = new Dropbox.Dropbox({ accessToken: 'jNfuqaYoI3AAAAAAAAAAqvr96aupCnGYWhhPaL2m6A0r6UxWV4nBF8XwARehWV25', fetch: fetch });
+  	var ur='/Dropbox/DotNetApi/'+dt+'_resDB.db';
+
+  	dbx.filesDownload({path: ur})
+  		.then(function(response) {
+  			var reader = new FileReader();
+  			reader.onload = function(event) {
+      				var arrayBuffer = event.target.result;
+  				loadDB(arrayBuffer);
+  			};
+  			reader.readAsArrayBuffer(response.fileBlob);
+  			//sleep(1000);
+  			//loadDB(reader.result);
+  			//reader.onload = function(event) {
+      				//var arrayBuffer = event.target.result;
+  				//loadDB(arrayBuffer);
+  			//};
+  		})
+  		.catch(function(error) {
+  			//console.log(error);
+        setIsLoading(false);
+  		});
+  }
+
 }
 
-function loadDB(arrayBuffer) {
+function loadDB(arrayBuffer,fromdate,todate) {
     setIsLoading(true);
 
     resetTableList();
@@ -148,6 +160,9 @@ function loadDB(arrayBuffer) {
 
             //Get all table names from master table
             tables = db.prepare("SELECT * FROM sqlite_master WHERE type='table' ORDER BY name");
+
+            //bo = db.prepare("SELECT sum(sl) as tong FROM (SELECT sl FROM item where name like 'Bò%') AS subquery");
+            //mi = db.prepare("SELECT sum(sl) as tong FROM (SELECT sl FROM item where name like 'Mì%') AS subquery");
         } catch (ex) {
             setIsLoading(false);
             alert(ex);
@@ -171,7 +186,7 @@ function loadDB(arrayBuffer) {
 
         //Select first table and show It
         tableList.select2("val", firstTableName);
-        doDefaultSelect(firstTableName);
+        doDefaultSelect(firstTableName,fromdate,todate);
 
         $("#output-box").fadeIn();
         $(".nouploadinfo").hide();
@@ -268,24 +283,14 @@ function extractFileNameWithoutExt(filename) {
     }
 }
 
-//window.addEventListener("focus", function() {
-    //var a="abc";
-//});
-//window.addEventListener("blur", function() {
-    //var a="abc";
-//});
-//window.addEventListener("resume", function() {
-    //var a="abc";
-//});
-
-
-
 function dropzoneClick() {
     $("#dropzone-dialog").click();
 }
 
-function doDefaultSelect(name) {
-    var defaultSelect = "SELECT * FROM '" + name + "' order by starttime desc LIMIT 0,30";
+function doDefaultSelect(name,fromdate,todate) {
+  var defaultSelect;
+    defaultSelect = "SELECT * FROM '" + name + "' order by starttime desc LIMIT 0,30";
+
     editor.setValue(defaultSelect, -1);
     renderQuery(defaultSelect);
 }
@@ -502,11 +507,11 @@ function renderQuery(query) {
 			var tt=price*sl;
 			total+=tt;
                   tr.append('<td><span title="' + htmlEncode(s[i]) + '">' + Number(tt).toLocaleString() + '</span></td>');
-               }    
+               }
                else{
                   tr.append('<td><span title="' + htmlEncode(s[i]) + '">' + htmlEncode(s[i]) + '</span></td>');
                }
-               
+
             }
         }
         tbody.append(tr);
@@ -515,6 +520,8 @@ function renderQuery(query) {
    $('#total').text("Total: "+Number(total).toLocaleString());
     refreshPagination(query, tableName);
 
+    executeMon();
+
     $('[data-toggle="tooltip"]').tooltip({html: true});
     dataBox.editableTableWidget();
 
@@ -522,5 +529,3 @@ function renderQuery(query) {
         positionFooter();
     }, 100);
 }
-
-
