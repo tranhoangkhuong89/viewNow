@@ -289,7 +289,7 @@ function dropzoneClick() {
 
 function doDefaultSelect(name,fromdate,todate) {
   var defaultSelect;
-    defaultSelect = "SELECT * FROM '" + name + "' order by starttime desc LIMIT 0,30";
+    defaultSelect = "SELECT * FROM '" + name + "' order by starttime desc LIMIT 0,50";
 
     editor.setValue(defaultSelect, -1);
     renderQuery(defaultSelect);
