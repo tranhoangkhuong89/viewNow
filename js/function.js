@@ -286,7 +286,7 @@ function renderQueryPizza() {
 }
 
 function renderQueryKhoang() {
-  var query = "select i.id, i.name,i.sl,o.[table],o.price,o.starttime,o.endtime,o.checkout from item i inner join 'order' o on i.idorder=o.idkey where i.name like 'Pizza%' order by o.starttime asc";
+  var query = "select i.id, i.name,i.sl,o.[table],o.price,o.starttime,o.endtime,o.checkout from item i inner join 'order' o on i.idorder=o.idkey where i.name like '%Suối' order by o.starttime asc";
     var dataBox = $("#tblkhoang");
     var thead = dataBox.find("thead").find("tr");
     var tbody = dataBox.find("tbody");
