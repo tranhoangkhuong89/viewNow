@@ -72,8 +72,254 @@ function executeMon() {
     renderQueryMi()
     renderQueryPizza();
     renderQueryKhoang();
+	renderQueryBM();
+	renderQueryCuu();
+	renderQueryNai();
+	renderQueryDaDieu();
+	renderQueryCaHoi();
+	renderQuerySuonHeo();
+	renderQuerySuonBo();
 
 }
+
+function renderQuerySuonBo() {
+  var query = "select i.id, i.name,i.sl from item i where i.name like '%Sườn Bò%'";
+    
+	var dataBox = $("#tblsuonbo");
+    errorBox.hide();
+    dataBox.show();
+
+    var sel;
+    try {
+        sel = db.prepare(query);
+    } catch (ex) {
+        showError(ex);
+        return;
+    }
+   var total_bm=0;
+    while (sel.step()) {
+        var s = sel.get();
+        for (var i = 0; i < s.length; i++) {
+            if(i==2){
+               total_bm+=s[i];
+            }    
+        }
+    }
+	$('#idsuonbo').text("Sườn Bò: "+total_bm.toString()+" phần");
+    //refreshPagination(query, tableName);
+
+    $('[data-toggle="tooltip"]').tooltip({html: true});
+    dataBox.editableTableWidget();
+
+    setTimeout(function () {
+        positionFooter();
+    }, 100);
+}
+
+function renderQuerySuonHeo() {
+  var query = "select i.id, i.name,i.sl from item i where i.name like '%Sườn Heo%'";
+    
+	var dataBox = $("#tblsuonheo");
+    errorBox.hide();
+    dataBox.show();
+
+    var sel;
+    try {
+        sel = db.prepare(query);
+    } catch (ex) {
+        showError(ex);
+        return;
+    }
+   var total_bm=0;
+    while (sel.step()) {
+        var s = sel.get();
+        for (var i = 0; i < s.length; i++) {
+            if(i==2){
+               total_bm+=s[i];
+            }    
+        }
+    }
+	$('#idsuonheo').text("Sườn Heo: "+total_bm.toString()+" phần");
+    //refreshPagination(query, tableName);
+
+    $('[data-toggle="tooltip"]').tooltip({html: true});
+    dataBox.editableTableWidget();
+
+    setTimeout(function () {
+        positionFooter();
+    }, 100);
+}
+
+function renderQueryCaHoi() {
+  var query = "select i.id, i.name,i.sl from item i where i.name like '%Cá Hồi%'";
+    
+	var dataBox = $("#tblcahoi");
+    errorBox.hide();
+    dataBox.show();
+
+    var sel;
+    try {
+        sel = db.prepare(query);
+    } catch (ex) {
+        showError(ex);
+        return;
+    }
+   var total_bm=0;
+    while (sel.step()) {
+        var s = sel.get();
+        for (var i = 0; i < s.length; i++) {
+            if(i==2){
+               total_bm+=s[i];
+            }    
+        }
+    }
+	$('#idcahoi').text("Cá Hồi: "+total_bm.toString()+" phần");
+    //refreshPagination(query, tableName);
+
+    $('[data-toggle="tooltip"]').tooltip({html: true});
+    dataBox.editableTableWidget();
+
+    setTimeout(function () {
+        positionFooter();
+    }, 100);
+}
+
+function renderQueryDaDieu() {
+  var query = "select i.id, i.name,i.sl from item i where i.name like '%Đà Điểu%'";
+    
+	var dataBox = $("#tbldadieu");
+    errorBox.hide();
+    dataBox.show();
+
+    var sel;
+    try {
+        sel = db.prepare(query);
+    } catch (ex) {
+        showError(ex);
+        return;
+    }
+   var total_bm=0;
+    while (sel.step()) {
+        var s = sel.get();
+        for (var i = 0; i < s.length; i++) {
+            if(i==2){
+               total_bm+=s[i];
+            }    
+        }
+    }
+	$('#iddadieu').text("Đà Điểu: "+total_bm.toString()+" phần");
+    //refreshPagination(query, tableName);
+
+    $('[data-toggle="tooltip"]').tooltip({html: true});
+    dataBox.editableTableWidget();
+
+    setTimeout(function () {
+        positionFooter();
+    }, 100);
+}
+
+function renderQueryNai() {
+  var query = "select i.id, i.name,i.sl from item i where i.name like '%Nai%'";
+    
+	var dataBox = $("#tblnai");
+    errorBox.hide();
+    dataBox.show();
+
+    var sel;
+    try {
+        sel = db.prepare(query);
+    } catch (ex) {
+        showError(ex);
+        return;
+    }
+   var total_bm=0;
+    while (sel.step()) {
+        var s = sel.get();
+        for (var i = 0; i < s.length; i++) {
+            if(i==2){
+               total_bm+=s[i];
+            }    
+        }
+    }
+	$('#idnai').text("Nai: "+total_bm.toString()+" phần");
+    //refreshPagination(query, tableName);
+
+    $('[data-toggle="tooltip"]').tooltip({html: true});
+    dataBox.editableTableWidget();
+
+    setTimeout(function () {
+        positionFooter();
+    }, 100);
+}
+
+function renderQueryCuu() {
+  var query = "select i.id, i.name,i.sl from item i where i.name like '%Cừu%'";
+    
+	var dataBox = $("#tblcuu");
+    errorBox.hide();
+    dataBox.show();
+
+    var sel;
+    try {
+        sel = db.prepare(query);
+    } catch (ex) {
+        showError(ex);
+        return;
+    }
+   var total_bm=0;
+    while (sel.step()) {
+        var s = sel.get();
+        for (var i = 0; i < s.length; i++) {
+            if(i==2){
+               total_bm+=s[i];
+            }    
+        }
+    }
+	$('#idcuu').text("Cừu: "+total_bm.toString()+" phần");
+    //refreshPagination(query, tableName);
+
+    $('[data-toggle="tooltip"]').tooltip({html: true});
+    dataBox.editableTableWidget();
+
+    setTimeout(function () {
+        positionFooter();
+    }, 100);
+}
+
+function renderQueryBM() {
+  var query = "select i.id, i.name,i.sl from item i where i.name like 'Bánh Mì Thêm'";
+    
+	var dataBox = $("#tblbm");
+    errorBox.hide();
+    dataBox.show();
+
+    var sel;
+    try {
+        sel = db.prepare(query);
+    } catch (ex) {
+        showError(ex);
+        return;
+    }
+   var total_bm=0;
+    while (sel.step()) {
+        var s = sel.get();
+        for (var i = 0; i < s.length; i++) {
+            if(i==2){
+               total_bm+=s[i];
+            }    
+        }
+    }
+	$('#idbm').text("Bánh mì: "+total_bm.toString()+" ổ");
+    //refreshPagination(query, tableName);
+
+    $('[data-toggle="tooltip"]').tooltip({html: true});
+    dataBox.editableTableWidget();
+
+    setTimeout(function () {
+        positionFooter();
+    }, 100);
+}
+
 
 function renderQueryBo() {
   var query = "select i.id, i.name,i.sl,o.[table],o.price,o.starttime,o.endtime,o.checkout from item i inner join 'order' o on i.idorder=o.idkey where i.name like 'Bò%' order by o.starttime asc";
