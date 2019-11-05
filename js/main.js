@@ -122,7 +122,7 @@ function khoitao(dt){
     if($("txtngay").text()==""){
     $("txtngay").text(dt);
     }
-  	var dbx = new Dropbox.Dropbox({ accessToken: 'jNfuqaYoI3AAAAAAAAAAqvr96aupCnGYWhhPaL2m6A0r6UxWV4nBF8XwARehWV25', fetch: fetch });
+  	var dbx = new Dropbox.Dropbox({ accessToken: 'jNfuqaYoI3AAAAAAAAABugcJG8u5OklKJKSkVcAeMTLSYkaGnzTlzGP29O7Qkcy-', fetch: fetch });
   	var ur='/Dropbox/DotNetApi/'+dt+'_resDB.db';
 
   	dbx.filesDownload({path: ur})
